@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Articles Home</title>
+</head>
+
+<body>
+
+    
+    <h1>Hello In Articles Home</h1>
+    <a href="{% url 'articles_create'%}">Create Article</a>
+
+
+
+    {% if user.is_authenticated == False %}
+    <a href="{% url 'acc_signup'%}">Signup</a>
+    <a href="{% url 'acc_login'%}">Login</a>
+    {% endif %}
+
+
+    <br>
+    <br>
+    <br>
+
+    
+    {% if user.is_authenticated %}
+    <a href="{% url 'acc_logout'%}">Logout</a>
+    <h4>Hello {{user.username}}</h4>
+    {% endif %}
+
+
+    {% for article in articles %}
+    <a href="{% url 'articles_details' slug=article.slug %}">{{article.title}}</a>
+        <p>{{article.body}}</p>
+        <p>{{article.date}}</p>
+
+    {% endfor %}
+
+    
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Articles Details</title>
+</head>
+<body>
+
+    {% if user.is_authenticated == False %}
+
+    <a href="{% url 'acc_signup'%}">Signup</a>
+    <a href="{% url 'acc_login'%}">Login</a>
+
+
+    {% endif %}
+
+    <h1>Hello in Articles Details</h1>
+
+    <a href="{% url 'articles_home'%}">Go to Article list</a>
+
+    <br>
+    <br>
+    <br>
+
+    <img src="{{article_dtl.thumb.url}}" alt="img" style="max-height:400px;">
+    <p>{{article_dtl.title}}</p>
+    <p>{{article_dtl.body}}</p>
+    <p>{{article_dtl.date}}</p>
+    <p>Created by : {{article_dtl.author}}</p>
+    
+</body>
+</html>
