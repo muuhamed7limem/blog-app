@@ -1,4 +1,113 @@
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: local('Poppins-Regular'),
+         url('../static/fonts/Poppins-Regular.ttf') format("truetype");
+  }
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
 body{
-    background-color: rgb(150, 150, 184);
-    font-family: Arial, Helvetica, sans-serif;
+    background-color: #1D1D1D;
+    font-family: Poppins-Regular ;
+    color: white;
+}
+
+/* ============================== The first.html Page =============================== */
+
+.first-wrapper{
+    color: white;
+    display: grid;
+    grid-template-rows: 70px 542px 50px ;
+}
+
+.first-wrapper > div{
+    text-align: center;
+}
+
+.first-wrapper .head-first{
+    justify-self: end;
+}
+
+.first-wrapper .head-first a {
+    color:#fff;
+    margin:20px 20px 0 0;
+    text-decoration:none;
+    display:inline-block;
+    border :1px solid white;
+    padding:12px;
+    border-radius:25px;
+}
+
+.first-wrapper .head-first .log{
+    padding: 12px 35px 12px 35px ;
+    transition-duration: 0.5s;
+}
+
+.first-wrapper .head-first .log:hover{
+    background-color: #fff;
+    color: #1D1D1D;
+}
+
+.first-wrapper .head-first .create{
+    background-color: #fff;
+    color: #1D1D1D;
+    transition-duration: 0.5s;
+}
+
+.first-wrapper .head-first .create:hover{
+    background-color: #4B49A0;
+    color: #fff;
+    border: 1px solid #4B49A0 ;
+}
+
+.first-wrapper .body-first{
+    justify-self: center;
+    align-self: center;
+}
+
+.first-wrapper .foot-first{
+    justify-self: start;
+}
+
+.first-wrapper .foot-first a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    margin-left: 15px;
+    transition-duration: 0.5s;
+}
+
+.first-wrapper .foot-first a:hover{
+    color: #4B49A0;
+}
+
+.first-wrapper .body-first a{
+    text-decoration: none;
+    color: #fff;
+    transition-duration: 0.5s;
+}
+
+.first-wrapper .body-first a:hover{
+    color: #4B49A0;
+}
+
+.first-wrapper .body-first .user-name{
+    color: #4B49A0;
+}
+
+.first-wrapper .head-first #date{
+    margin-right: 10px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.first-wrapper .head-first #sun{
+    margin-right: 20px;
+    margin-top: 40px;
+    display: inline-block;
 }

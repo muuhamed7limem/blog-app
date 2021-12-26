@@ -1,17 +1,60 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'all.min.css' %}">
     <title>First</title>
 </head>
+
 <body>
 
-    <h1>Hello In First</h1>
-    <a href="{% url 'articles_home'%}">Articles List</a>
+    <div class="first-wrapper">
+
+        
+
+        <div class="head-first">
+            {%if user.is_authenticated == False %}
+            <a href="{% url 'acc_login' %}" class="log">Login</a>
+            <a href="{% url 'acc_signup' %}" class="create">Create account</a>
+            {% endif %}
+
+            {%if user.is_authenticated == True %}
+            <p id="date"></p> <p id="sun"> <i class="fas fa-sun"> </i><p>
+            {% endif %}
+        </div>
+
+
+        <div class="body-first">
+            {%if user.is_authenticated == False %}
+            <h1 class="h1-first">Hello Mf's In Muuhamed Blog...</h1>
+            {% endif %}
+
+            {%if user.is_authenticated == True%}
+            <h1 class="h1-first">Hello <span class="user-name">{{user.username}}</span> In Muuhamed Blog...</h1>
+            {% endif %}
+
+            <a href="{% url 'articles_home' %}">Go to articles list &#8594 </a>
+        </div>
+
+
+        <div class="foot-first">
+            <a href="https://github.com/muuhamed7limem" target="_blank"><i class="fab fa-github-alt"></i></a>
+            <a href="https://www.instagram.com/muuhamed_limem/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/charfi.hama" target="_blank"><i class="fab fa-facebook-square"></i></a>
+        </div>
+
+        
+
+    </div>
 
 </body>
+
+<script src="{% static 'all.min.js'%}"></script>
+<script src="{% static 'date.js'%}"></script>
+
 </html>

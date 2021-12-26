@@ -8,3 +8,4 @@ psycopg2==2.9.2
 sqlparse==0.4.2
 tzdata==2021.5
 whitenoise==5.3.0
+fontawesome-free==5.10.1.post1
