@@ -1,35 +1,39 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'style.css' %}">
-    <title>Signup</title>
+    <title>Login</title>
 </head>
+
 <body>
 
-    <h1>Hello In The Login Page</h1>
+    <div class="login-wrapper">
 
+        <form action="" method="post" class="form-login">
 
-
-    <form action="" method="post">
-        
             {% if request.GET.next %}
-            
+
             <input type="hidden" name="next" value="{{request.GET.next}}">
-            
+
             {% endif %}
 
             {% csrf_token%}
 
             {{form}}
 
-        <button type="submit">Login</button>
+            <button type="submit">Login</button>
+            <p class="dont-have">Don't have one ? <a href="{% url 'acc_signup' %}">Create an account</a></p>
 
-    </form>
+        </form>
 
-    
+    </div>
+
+
 </body>
+
 </html>

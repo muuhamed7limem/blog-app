@@ -12,37 +12,56 @@
 
 <body>
 
-    
-    <h1>Hello In Articles Home</h1>
-    <a href="{% url 'articles_create'%}">Create Article</a>
+    <div class="articles_home">
+
+
+        <div class="head">
+
+            {% if user.is_authenticated == False %}
+            <a href="{% url 'acc_login'%}" class="home-login-btn">Login</a>
+            <a href="{% url 'acc_signup'%}" class="home-signup-btn">Create account</a>
+            {% endif %}
+
+        </div>
 
 
 
-    {% if user.is_authenticated == False %}
-    <a href="{% url 'acc_signup'%}">Signup</a>
-    <a href="{% url 'acc_login'%}">Login</a>
-    {% endif %}
+        <div class="head2">
+            {% if user.is_authenticated %}
+            <h4 class="user">Hey <span class="user-name">{{user.username}}</span></h4>
+            <a href="{% url 'acc_logout'%}" class="logout">Logout</a>
+            {% endif %}
+        </div>
+        
+            <div class="under-head">
+                <p class="recently">Recently Added :</p>
+                {% if user.is_authenticated %}
+                <a href="{% url 'articles_create'%}" class="under-head-create">Create article</a>
+                {% endif %}
+            </div>
 
+        
 
-    <br>
-    <br>
-    <br>
+        <div class="artcl-wrapper">
 
-    
-    {% if user.is_authenticated %}
-    <a href="{% url 'acc_logout'%}">Logout</a>
-    <h4>Hello {{user.username}}</h4>
-    {% endif %}
+            {% for article in articles %}
 
+            <div class="indv-artcl">
+                <p class="author">Created By : {{article.author}}</p>
+                <div class="artcl">
+                    <a href="{% url 'articles_details' slug=article.slug %}">{{article.title}}</a>
+                    <p>{{article.body}}</p>
+                    <p>{{article.date}}</p>
+                </div>
+            </div>
 
-    {% for article in articles %}
-    <a href="{% url 'articles_details' slug=article.slug %}">{{article.title}}</a>
-        <p>{{article.body}}</p>
-        <p>{{article.date}}</p>
+            {% endfor %}
 
-    {% endfor %}
+        </div>
 
-    
+        
+
+    </div>
 
 </body>
 

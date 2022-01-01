@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,20 +9,27 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>Articles Create</title>
 </head>
+
 <body>
 
-    <h1>Hello in Articles Create</h1>
-    
 
-    <form action="" method="post" enctype="multipart/form-data">
 
-        {% csrf_token %}
+    <div class="create-wrapper">
 
-        {{form}}
+        <div class="form-wrapper">
+            <p class="warn">The image resolution must be 600x400 <br> Otherwise it will be streched</p>
+            <form action="" method="post" enctype="multipart/form-data">
 
-        <button type="submit">Create</button>
-    </form>
-    
+                {% csrf_token %}
+
+                {{form}}
+
+                <button type="submit">Create</button>
+            </form>
+        </div>
+
+    </div>
+
 </body>
 
 <script src="{% static 'script.js' %}"></script>

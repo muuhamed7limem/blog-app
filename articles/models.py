@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 
 
 class Article(Model):
-    title = models.CharField(max_length=50)
-    body = models.TextField(max_length=300)
+    title = models.CharField(max_length=30)
+    body = models.TextField(max_length=600)
     slug = models.SlugField(max_length=70)
     date = models.DateField(auto_now_add=True)
     thumb = models.ImageField(upload_to='staticfiles')

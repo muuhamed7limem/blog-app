@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,29 +9,36 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>Articles Details</title>
 </head>
+
 <body>
 
-    {% if user.is_authenticated == False %}
-
-    <a href="{% url 'acc_signup'%}">Signup</a>
-    <a href="{% url 'acc_login'%}">Login</a>
+    <div class="details-wrapper">
 
 
-    {% endif %}
+        <div class="body">
+            <div class="one">
+                <p class="title">{{article_dtl.title}}</p>
+                <p class="body">{{article_dtl.body}}</p>
+            </div>
+            <div class="two">
+                <img src="{{article_dtl.thumb.url}}" alt="img">
+                <p class="author">Posted by : <span class="user-name">{{article_dtl.author}}</span></p>
+                <p class="date">{{article_dtl.date}}</p>
+            </div>
+        </div>
 
-    <h1>Hello in Articles Details</h1>
+        <div class="foot">
+            <div class="container">
+                {% if user.is_authenticated == False %}
+                <a href="{% url 'acc_login'%}" class="login">Login</a>
+                <a href="{% url 'acc_signup'%}" class="signup">Create account</a>
+                <a href="{% url 'articles_create'%}" class="create">Create article</a>
+                {% endif %}
+            </div>
+        </div>
 
-    <a href="{% url 'articles_home'%}">Go to Article list</a>
+    </div>
 
-    <br>
-    <br>
-    <br>
-
-    <img src="{{article_dtl.thumb.url}}" alt="img" style="max-height:400px;">
-    <p>{{article_dtl.title}}</p>
-    <p>{{article_dtl.body}}</p>
-    <p>{{article_dtl.date}}</p>
-    <p>Created by : {{article_dtl.author}}</p>
-    
 </body>
+
 </html>
