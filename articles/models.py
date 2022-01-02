@@ -9,7 +9,7 @@ class Article(Model):
     body = models.TextField(max_length=600)
     slug = models.SlugField(max_length=70)
     date = models.DateField(auto_now_add=True)
-    thumb = models.ImageField(upload_to='staticfiles/')
+    thumb = models.ImageField(upload_to='/staticfiles/')
     author = models.ForeignKey(User, default=None, on_delete=CASCADE)
 
     def __str__(self):
